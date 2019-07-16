@@ -1,0 +1,608 @@
+import javax.swing.JFrame;
+import java.awt.FlowLayout;
+import java.awt.event.*;
+import java.awt.event.ItemListener;
+import javax.swing.JLabel;
+import javax.swing.JCheckBox;
+import javax.swing.JTextField;
+import java.awt.*;
+import javax.swing.*;
+import java.text.*;
+
+public class FoodTruck extends JFrame implements ItemListener,ActionListener
+{
+	JCheckBox a1=new JCheckBox("Beef Patty ($5.00)");
+	JCheckBox a2= new JCheckBox("Vegi Patty ($4.00)");
+
+	JCheckBox b1=new JCheckBox("Cheese ");
+	JCheckBox b2=new JCheckBox("Pickles ");
+	JCheckBox b3=new JCheckBox("Lettuce ");
+	JCheckBox b4=new JCheckBox("Ketchup ");
+	JCheckBox b5=new JCheckBox("Mustard ");
+
+	JCheckBox c1=new JCheckBox("Extra Cheese (+$0.50)");
+	JCheckBox c2=new JCheckBox("Extra Pickles (+$0.50)");
+	JCheckBox c3=new JCheckBox("Extra Lettuce (+$0.25)");
+	JCheckBox c4=new JCheckBox("Extra Ketchup (Free) ");
+	JCheckBox c5=new JCheckBox("Extra Mustard (Free)");
+
+	JCheckBox d1=new JCheckBox("Small ($5.00)");
+	JCheckBox d2=new JCheckBox("Meduim ($10.00)");
+	JCheckBox d3=new JCheckBox("Large ($20.00)");
+	
+	JCheckBox d1_2=new JCheckBox("Regula Hand Toss ");
+	JCheckBox d2_2=new JCheckBox("Thin Crust ");
+	JCheckBox d3_2=new JCheckBox("Deep Dish (+$1.00)");
+	
+	JCheckBox e1=new JCheckBox("Cheese ONLY ");
+	JCheckBox e2=new JCheckBox("Pepperoni ");
+	JCheckBox e3=new JCheckBox("Sausage ");
+	JCheckBox e4=new JCheckBox("Mushroom ");
+	JCheckBox e5=new JCheckBox("Olives ");
+	JCheckBox e6=new JCheckBox("Onion ");
+
+	JCheckBox f1=new JCheckBox("Slice of Apple Pie ($2.00)");
+	JCheckBox f2=new JCheckBox("Slice of Blueberry Pie ($2.00)");
+	JCheckBox f3=new JCheckBox("Vanila Icecream Cone ($1.50)");
+	JCheckBox f4=new JCheckBox("Chocolate Icecream Cone ($1.50)");
+	
+	JCheckBox h1=new JCheckBox("Pepsi");
+	JCheckBox h2=new JCheckBox("Mt Dew");
+	JCheckBox h3=new JCheckBox("Root beer ");
+	JCheckBox h4=new JCheckBox("Fresh Lemonade ");
+	JCheckBox h5=new JCheckBox("Water ($1.00)");
+
+	JPanel panel= new JPanel();
+	JPanel panel2= new JPanel();
+	JPanel panel3= new JPanel();
+	JPanel panel4= new JPanel();
+	JPanel panel5= new JPanel();
+	JPanel panel6= new JPanel();
+	JPanel panel7= new JPanel();
+	JPanel panel8= new JPanel();
+	JPanel panel9= new JPanel();
+	JPanel panel10= new JPanel();
+	
+	JLabel g1=new JLabel("Burger Types:                                " + "       " + "\n");
+	JLabel g2=new JLabel("Topping: (First toppings are FREE)           " + "       " + "\n");
+	JLabel g3=new JLabel("Extras:                                      " + "       " + "\n");
+	JLabel g4=new JLabel("Pizza Sizes:"+"\n");
+	JLabel g5=new JLabel("Pizza Crust:"+"\n");
+	JLabel g6=new JLabel("Pizza Toppings: (Cheese FREE, others +$1.00)"+"\n");
+	JLabel g7=new JLabel("Desserts: " + "\n");
+	JLabel g8=new JLabel("Drinks: ($2.00 each)"+"\n");
+
+	JButton btn=new JButton("Your TOTAL");
+	JButton btn2=new JButton("Finish Order");
+	JTextArea txtArea= new JTextArea();
+
+	JScrollPane	scroll = new JScrollPane(txtArea);
+	JTextField priceTxtFeild=new JTextField(10);
+
+	public FoodTruck()
+	{
+		setTitle("CSCI1082 Food Truck");
+	
+
+		add(panel);
+		add(new JLabel("Welcome to CSCI1082 Food Truck"));
+
+		
+		add(new JLabel(" "));
+		add(new JLabel("BURGERS "));
+		add(new JLabel(" "));
+		add(new JLabel(" "));
+		add(panel2);//burger meat
+		panel2.add(g1);
+		panel2.add(a1);
+		panel2.add(a2);
+
+		add(panel3);//burger toppings
+		panel3.add(g2);
+		panel3.add(b1);
+		panel3.add(b2);
+		panel3.add(b3);
+		panel3.add(b4);
+		panel3.add(b5);
+		
+		add(panel4);//topping extras
+		panel4.add(g3);
+		panel4.add(c1);
+		panel4.add(c2);
+		panel4.add(c3);
+		panel4.add(c4);
+		panel4.add(c5);
+		
+		
+		add(new JLabel("Pizzas"));
+		add(new JLabel(" "));
+		add(new JLabel(" "));
+		add(panel5); //pizza sizes
+		panel5.add(g4);
+		panel5.add(d1);
+		panel5.add(d2);
+		panel5.add(d3);
+		
+		add(panel9); //pizza crust
+		panel9.add(g5);
+		panel9.add(d1_2);
+		panel9.add(d2_2);
+		panel9.add(d3_2);
+
+		add(panel6); //pizza toppings
+		panel6.add(g6);
+		panel6.add(e1);
+		panel6.add(e2);
+		panel6.add(e3);
+		panel6.add(e4);
+		panel6.add(e5);
+		panel6.add(e6);
+
+		
+		add(panel7); //deserts
+		panel7.add(g7);
+		panel7.add(f1);
+		panel7.add(f2);
+		panel7.add(f3);
+		panel7.add(f4);
+	
+		
+		add(panel10); //drinks
+		panel10.add(g8);
+		panel10.add(h1);
+		panel10.add(h2);
+		panel10.add(h3);
+		panel10.add(h4);
+		panel10.add(h5);
+
+
+		a1.addItemListener(this);
+		a2.addItemListener(this);
+		
+		b1.addItemListener(this);
+		b2.addItemListener(this);
+		b3.addItemListener(this);
+		b4.addItemListener(this);
+		b5.addItemListener(this);
+
+		c1.addItemListener(this);
+		c2.addItemListener(this);
+		c3.addItemListener(this);
+		c4.addItemListener(this);
+		c5.addItemListener(this);
+
+		d1.addItemListener(this);
+		d2.addItemListener(this);
+		d3.addItemListener(this);
+		
+		d1_2.addItemListener(this);
+		d2_2.addItemListener(this);
+		d3_2.addItemListener(this);
+
+		e1.addItemListener(this);
+		e2.addItemListener(this);
+		e3.addItemListener(this);
+		e4.addItemListener(this);
+		e5.addItemListener(this);
+		e6.addItemListener(this);
+
+		f1.addItemListener(this);
+		f2.addItemListener(this);
+		f3.addItemListener(this);
+		f4.addItemListener(this);
+
+		
+		h1.addItemListener(this);
+		h2.addItemListener(this);
+		h3.addItemListener(this);
+		h4.addItemListener(this);
+		h5.addItemListener(this);
+		
+		btn.addActionListener(this);		
+		btn2.addActionListener(this);	
+		
+		
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new FlowLayout());
+		getContentPane().setLayout(new FlowLayout());
+		setLayout(new GridLayout(7, 1));
+		
+		txtArea.setText("Your list of Selected items"+"\n");
+		add(scroll);
+		add(new JLabel(" "));
+		
+		
+		add(panel8);
+		panel8.add(btn);
+		add(priceTxtFeild);
+		panel8.add(btn2);
+	}
+
+	public void itemStateChanged(ItemEvent e)
+	{
+		Object source=e.getSource();
+		int select=e.getStateChange();
+		
+		
+		//BURGER
+		if(source==a1)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Beef Patty"+"\n");
+			else 
+			txtArea.append("Beef Patty DELETED"+"\n");
+		}
+		else if(source==a2)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Vegi Patty"+"\n");
+			else 
+			txtArea.append("Vegi Patty DELETED"+"\n");
+		}
+		else if(source==b1)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Cheese"+"\n");
+			else 
+			txtArea.append("Cheese DELETED"+"\n");
+		}
+		else if(source==b2)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Pickles"+"\n");
+			else 
+			txtArea.append("Pickles DELETED"+"\n");
+		}
+		else if(source==b3)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Lettuce"+"\n");
+			else 
+			txtArea.append("Lettuce DELETED"+"\n");
+		}
+		else if(source==b4)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Ketchup"+"\n");
+			else 
+			txtArea.append("Ketchup DELETED"+"\n");
+		}
+		else if(source==b5)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Mustard"+"\n");
+			else 
+			txtArea.append("Mustard DELETED"+"\n");
+		}
+
+		else if(source==c1)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Extra Cheese"+"\n");
+			else 
+			txtArea.append("Extra Cheese DELETED"+"\n");
+		}
+		else if(source==c2)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Extra Pickles"+"\n");
+			else 
+			txtArea.append("Extra Pickles DELETED"+"\n");
+		}
+		else if(source==c3)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Extra Lettuce"+"\n");
+			else 
+			txtArea.append("Extra Lettuce DELETED"+"\n");
+		}
+		else if(source==c4)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Extra Ketchup"+"\n");
+			else 
+			txtArea.append("Extra Ketchup DELETED"+"\n");
+		}
+		else if(source==c5)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Extra Mustard"+"\n");
+			else 
+			txtArea.append("Extra Mustard DELETED"+"\n");
+		}
+		
+		
+		//PIZZA
+		
+		else if(source==d1)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Small Pizza"+"\n");
+			else 
+			txtArea.append("Small Pizza is de-selected"+"\n");
+		}
+		else if(source==d2)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Meduim pizza"+"\n");
+			else 
+			txtArea.append("Meduim pizza is de-selected"+"\n");
+		}
+		else if(source==d3)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Large Pizza"+"\n");
+			else 
+			txtArea.append("Large Pizza is de-selected"+"\n");
+		}
+		
+		else if(source==d1_2)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Regular Hand Toss Crust"+"\n");
+			else 
+			txtArea.append("Regular Hand Toss Crust DELETED"+"\n");
+		}
+		else if(source==d2_2)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Thin Crust"+"\n");
+			else 
+			txtArea.append("Thin Crust DELETED"+"\n");
+		}
+		else if(source==d3_2)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Deep Dish"+"\n");
+			else 
+			txtArea.append("Deep Dish DELETED"+"\n");
+		}
+
+		else if(source==e1)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Cheese ONLY" +"\n");
+			else 
+			txtArea.append("Cheese ONLY DELETED"+"\n");
+		}
+		else if(source==e2)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Pepperoni"+"\n");
+			else 
+			txtArea.append("Pepperoni DELETED"+"\n");
+		}
+		else if(source==e3)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Sausage"+"\n");
+			else 
+			txtArea.append("Sausage DELETED"+"\n");
+		}
+		else if(source==e4)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Mushroom"+"\n");
+			else 
+			txtArea.append("Mushroom DELETED"+"\n");
+		}
+		else if(source==e5)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Olives"+"\n");
+			else
+			txtArea.append("Olives DELETED"+"\n");
+		}
+		else if(source==e6)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Onion"+"\n");
+			else
+			txtArea.append("Onion DELETED"+"\n");
+		}
+
+		else if(source==f1)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Slice of Apple Pie"+"\n");
+			else
+			txtArea.append("Slice of Apple Pie DELETED"+"\n");
+		}
+		else if(source==f2)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Slice of Blueberry Pie"+"\n");
+			else
+			txtArea.append("Slice of Blueberry Pie DELETED"+"\n");
+		}
+		else if(source==f3)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Vanila Icecream Cone"+"\n");
+			else 
+			txtArea.append("Vanila Icecream Cone DELETED"+"\n");
+		}
+		else if(source==f4)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Chocolate Icecream Cone"+"\n");
+			else 
+			txtArea.append("Chocolate Icecream DELETED"+"\n");
+		}
+
+		
+		else if(source==h1)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Pepsi"+"\n");
+			else
+			txtArea.append("Pepsi DELETED"+"\n");
+		}
+		else if(source==h2)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Mt Dew"+"\n");
+			else
+			txtArea.append("Mt Dew DELETED"+"\n");
+		}
+		else if(source==h3)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Root Beer"+"\n");
+			else 
+			txtArea.append("Root Beer DELETED"+"\n");
+		}
+		else if(source==h4)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Fresh Lemonade" +"\n");
+			else 
+			txtArea.append("Fresh Lemonade DELETED"+"\n");
+		}
+		else if(source==h5)
+		{
+			if(select==ItemEvent.SELECTED)
+			txtArea.append("Water"+"\n");
+			else 
+			txtArea.append("Water DELETED"+"\n");
+		}
+	}	
+
+	//PRICES
+		public void actionPerformed(ActionEvent e)
+			{
+				Object source=e.getSource();
+				double s1=0;
+				if (source==btn)
+				{
+					//buger pattys
+					if(a1.isSelected())
+					{
+						s1+=5.00;
+					}
+					if(a2.isSelected())
+					{
+						s1+=4.00;
+					}
+					
+					//extra burger toppings
+					if(c1.isSelected())//cheese
+					{
+						s1+=0.50;
+					}
+					if(c2.isSelected())//pickles
+					{
+						s1+=0.50;
+					}
+					if(c3.isSelected())//lettuce
+					{
+						s1+=0.25;
+					}
+					
+					//pizza sizes
+					if(d1.isSelected())//small
+					{
+						s1+=5.00;
+					}
+					if(d2.isSelected())//meduim
+					{
+						s1+=10.00;
+					}
+					if(d3.isSelected())//large
+					{
+						s1+=20.00;
+					}
+					//crust
+					if(d3_2.isSelected())//deep dish
+					{
+						s1+=1.00;
+					}
+
+					//pizza toppings
+					if(e2.isSelected())//pepperoni
+					{
+						s1+=1.00;
+					}
+					if(e3.isSelected())//sasuage
+					{
+						s1+=1.00;
+					}
+					if(e4.isSelected())//mushroom
+					{
+						s1+=1.00;
+					}
+					if(e5.isSelected())//olives
+					{
+						s1+=1.00;
+					}
+					if(e6.isSelected())//onion
+					{
+						s1+=1.00;
+					}
+					
+					//desserts
+					if(f1.isSelected())//apple pie
+					{
+						s1+=2.00;
+					}
+					if(f2.isSelected())//blueberry pie
+					{
+						s1+=2.00;
+					}
+					if(f3.isSelected())//van icecream
+					{
+						s1+=1.50;
+					}
+					if(f4.isSelected())//chocolate icecream
+					{
+						s1+=1.50;
+					}
+
+					
+					//Drink Prices
+					if(h1.isSelected())//pepsi
+					{
+						s1+=2.00;
+					}
+					if(h2.isSelected())//mt dew
+					{
+						s1+=2.00;
+					}
+					if(h3.isSelected())//root beer
+					{
+						s1+=2.00;
+					}
+					if(h4.isSelected())//fresh lemonade
+					{
+						s1+=2.00;
+					}
+					if(h5.isSelected())//water
+					{
+						s1+=1.00;
+					}
+					
+					DecimalFormat display=new DecimalFormat("###.00");
+					priceTxtFeild.setText("Total is "+display.format(s1));
+					
+				}
+				else if (source==btn2) 
+				{
+					JOptionPane.showMessageDialog(null,"Thank You");
+					System.exit(0);
+				}
+				
+				
+			}
+
+	public static void main(String[] args) 
+
+		{
+			final int WIDTH=1000;
+			final int HEIGHT=1600;
+
+			FoodTruck burgerFrame=new FoodTruck();
+			burgerFrame.setSize(WIDTH,HEIGHT);
+			burgerFrame.setVisible(true);
+		}
+	}	
