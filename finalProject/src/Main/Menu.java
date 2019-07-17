@@ -2,55 +2,16 @@ package Main;
 import javax.swing.JFrame;
 import java.awt.FlowLayout;
 import java.awt.event.*;
+import java.awt.event.ItemListener;
 import javax.swing.JLabel;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
 import java.awt.*;
 import javax.swing.*;
+import java.text.*;
 
-
-public class Menu extends JFrame implements ItemListener,ActionListener
+public class FoodTruck extends JFrame implements ItemListener,ActionListener
 {
-	JCheckBox a1= new JCheckBox("Beef Patty ($5.00)");
-	JCheckBox a2= new JCheckBox("Vegi Patty ($4.00)");
-
-	JCheckBox b1=new JCheckBox("Cheese ");
-	JCheckBox b2=new JCheckBox("Pickles ");
-	JCheckBox b3=new JCheckBox("Lettuce ");
-	JCheckBox b4=new JCheckBox("Ketchup ");
-	JCheckBox b5=new JCheckBox("Mustard ");
-
-	JCheckBox c1=new JCheckBox("Extra Cheese (+$0.50)");
-	JCheckBox c2=new JCheckBox("Extra Pickles (+$0.50)");
-	JCheckBox c3=new JCheckBox("Extra Lettuce (+$0.25)");
-	JCheckBox c4=new JCheckBox("Extra Ketchup (Free) ");
-	JCheckBox c5=new JCheckBox("Extra Mustard (Free)");
-
-	JCheckBox d1=new JCheckBox("Small ($5.00)");
-	JCheckBox d2=new JCheckBox("Meduim ($10.00)");
-	JCheckBox d3=new JCheckBox("Large ($20.00)");
-	
-	JCheckBox d1_2=new JCheckBox("Regula Hand Toss ");
-	JCheckBox d2_2=new JCheckBox("Thin Crust ");
-	JCheckBox d3_2=new JCheckBox("Deep Dish (+$1.00)");
-	
-	JCheckBox e1=new JCheckBox("Cheese ONLY ");
-	JCheckBox e2=new JCheckBox("Pepperoni ");
-	JCheckBox e3=new JCheckBox("Sausage ");
-	JCheckBox e4=new JCheckBox("Mushroom ");
-	JCheckBox e5=new JCheckBox("Olives ");
-	JCheckBox e6=new JCheckBox("Onion ");
-
-	JCheckBox f1=new JCheckBox("Slice of Apple Pie ($2.00)");
-	JCheckBox f2=new JCheckBox("Slice of Blueberry Pie ($2.00)");
-	JCheckBox f3=new JCheckBox("Vanila Icecream Cone ($1.50)");
-	JCheckBox f4=new JCheckBox("Chocolate Icecream Cone ($1.50)");
-	
-	JCheckBox h1=new JCheckBox("Pepsi");
-	JCheckBox h2=new JCheckBox("Mt Dew");
-	JCheckBox h3=new JCheckBox("Root beer ");
-	JCheckBox h4=new JCheckBox("Fresh Lemonade ");
-	JCheckBox h5=new JCheckBox("Water ($1.00)");
 
 	JPanel panel= new JPanel();
 	JPanel panel2= new JPanel();
@@ -79,11 +40,10 @@ public class Menu extends JFrame implements ItemListener,ActionListener
 	JScrollPane	scroll = new JScrollPane(txtArea);
 	JTextField priceTxtFeild=new JTextField(10);
 
-	public Menu() 
+	public FoodTruck()
 	{
 		setTitle("CSCI1082 Food Truck");
 	
-
 		add(panel);
 		add(new JLabel("Welcome to CSCI1082 Food Truck"));
 
@@ -191,7 +151,6 @@ public class Menu extends JFrame implements ItemListener,ActionListener
 		f3.addItemListener(this);
 		f4.addItemListener(this);
 
-		
 		h1.addItemListener(this);
 		h2.addItemListener(this);
 		h3.addItemListener(this);
@@ -216,20 +175,4 @@ public class Menu extends JFrame implements ItemListener,ActionListener
 		add(priceTxtFeild);
 		panel8.add(btn2);
 	}
-
-
-
-	public void actionPerformed(ActionEvent e) {
-		cost costN = new cost();
-		costN.actionPerformed(e);
-	}
-
-
-	public void itemStateChanged(ItemEvent e) {
-		unCheckList unCheckListN = new unCheckList();
-		unCheckListN.itemStateChanged(e);
-	}
-	
-	
-}
-			
+}	
